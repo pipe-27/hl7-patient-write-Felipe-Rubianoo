@@ -7,11 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #d8f6d3;           /* verde claro */
-      --primary: #008b8b;      /* azul agua marina */
-      --secondary: #9fe0dd;
-      --text: #008b8b;
-      --hover: #006e6e;
+      --bg: #121212;
+      --primary: #8B0000;
+      --secondary: #2c2c2c;
+      --text: #ffffff;
+      --input-bg: #1f1f1f;
+      --hover: #a10000;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -20,22 +25,30 @@
       margin: 0;
       padding: 2rem;
       color: var(--text);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .box {
-      max-width: 640px;
+      max-width: 660px;
       margin: auto;
-      background: #ffffff;
+      background: var(--secondary);
       padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      border: 2px solid var(--secondary);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      border: 2px solid var(--primary);
+      animation: fadeIn 1s ease;
     }
 
     h1 {
       text-align: center;
       color: var(--primary);
       margin-bottom: 2rem;
+      font-size: 2rem;
     }
 
     label {
@@ -43,16 +56,24 @@
       font-weight: 600;
       margin: 1.2rem 0 .5rem;
       color: var(--text);
+      transition: color 0.3s;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 0.7rem;
-      border: 1px solid var(--secondary);
-      border-radius: 8px;
-      background: #f6fefc;
+      padding: 0.75rem;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      background: var(--input-bg);
       font-size: 1rem;
       color: var(--text);
+      transition: border 0.3s, transform 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--hover);
+      transform: scale(1.02);
     }
 
     textarea {
@@ -69,12 +90,13 @@
       font-size: 1rem;
       border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
       font-weight: bold;
     }
 
     button:hover {
       background: var(--hover);
+      transform: scale(1.02);
     }
   </style>
 </head>
@@ -97,7 +119,26 @@
       <label for="motivo">Motivo de la consulta *</label>
       <textarea id="motivo" required></textarea>
 
-      <label for="intervencion">Servicio requerido *</label>
-      <input type="text" id="intervencion" required />
+      <label for="procedimiento">Procedimiento requerido *</label>
+      <input type="text" id="procedimiento" required />
 
-      <label for="explica">Explicación del
+      <label for="explica">Explicación del caso *</label>
+      <textarea id="explica" required></textarea>
+
+      <label for="fechaCita">Día sugerido para la cita</label>
+      <input type="date" id="fechaCita" />
+
+      <label for="turno">Horario preferido</label>
+      <select id="turno">
+        <option value="manana">Mañana (8–12)</option>
+        <option value="tarde">Tarde (12–16)</option>
+        <option value="noche">Noche (16–20)</option>
+      </select>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
