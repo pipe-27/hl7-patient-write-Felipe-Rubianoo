@@ -4,26 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulario de Atención</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fff8f0;
-      --primary: #d86f45;
-      --secondary: #f9c89b;
-      --text: #3c2f2f;
-      --hover: #b8522c;
+      --bg: #d8f6d3;           /* verde claro */
+      --primary: #008b8b;      /* azul agua marina */
+      --secondary: #9fe0dd;
+      --text: #008b8b;
+      --hover: #006e6e;
     }
 
     body {
-      font-family: "Segoe UI", sans-serif;
+      font-family: 'Quicksand', sans-serif;
       background: var(--bg);
       margin: 0;
       padding: 2rem;
+      color: var(--text);
     }
 
     .box {
       max-width: 640px;
       margin: auto;
-      background: #fff;
+      background: #ffffff;
       padding: 2.5rem;
-      border-radius: 14px;
-      box-shadow: 0 5
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border: 2px solid var(--secondary);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 1.2rem 0 .5rem;
+      color: var(--text);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid var(--secondary);
+      border-radius: 8px;
+      background: #f6fefc;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: var(--hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Formulario de Atención</h1>
+    <form id="form">
+      <label for="nombre">Nombre del paciente *</label>
+      <input type="text" id="nombre" required />
+
+      <label for="fecha">Día de la consulta *</label>
+      <input type="date" id="fecha" required />
+
+      <label for="profesional">Especialista tratante *</label>
+      <input type="text" id="profesional" required />
+
+      <label for="docID">Identificación del médico *</label>
+      <input type="text" id="docID" required />
+
+      <label for="motivo">Motivo de la consulta *</label>
+      <textarea id="motivo" required></textarea>
+
+      <label for="intervencion">Servicio requerido *</label>
+      <input type="text" id="intervencion" required />
+
+      <label for="explica">Explicación del
